@@ -1,0 +1,15 @@
+
+div > h1 {
+    color: rgb(29, 29, 131);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+    margin-left: 10px;
+}
+
+button {
+    margin-left: 10px;
+}
