@@ -1,52 +1,51 @@
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'referentiel/createArticle.css' %}">
 
 <html>
 
-    <body>
-        <div class="article">
-            <form method="post">
-                {% csrf_token %}
-                <h1>Rentrer un article</h1>
-                <label for="name">Nom de l'article :</label>
-                <input type="text" id="name" name="name" required minlength="1" maxlength="50" size="10">
-                <br> <br>
-                <label for="price">Prix de l'article :</label>
-                <input type="text" id="price" name="price" required minlength="1" maxlength="8" size="10">
-                <br> <br>
-                <button type="submit"> Valider</button>
-            </form>
-        </div>
-        <div class="utilisateur">
-            <h1>Rentrer un utilisateur</h1>
-            <label for="name">Nom de l'utilisateur:</label>
+<body>
+    <div class="article">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Rentrer un article</h1>
+            <label for="name">Nom de l'article :</label>
             <input type="text" id="name" name="name" required minlength="1" maxlength="50" size="10">
-            <label for="fname">Prénom de l'utilisateur :</label>
-            <input type="text" id="fname" name="fname" required minlength="1" maxlength="50" size="10">
             <br> <br>
-            <label for="birthday">date de naissance :</label>
-            <input type="date" id="birthday" name="birthday" required minlength="4" maxlength="8" size="10">
-            <label for="job">catégorie socio-proffessionnelle :</label>
-            <input type="text" id="job" name="job" required minlength="4" maxlength="20" size="10">
+            <label for="price">Prix de l'article :</label>
+            <input type="text" id="price" name="price" required minlength="1" maxlength="8" size="10">
             <br> <br>
-            <label for="adress">Adresse :</label>
-            <input type="text" id="adress" name="adress" required minlength="4" maxlength="100" size="30">
-            <label for="code">Code postal :</label>
-            <input type="text" id="code" name="code" required minlength="4" maxlength="5" size="8">
-            <label for="city">Ville :</label>
-            <input type="text" id="city" name="city" required minlength="4" maxlength="100" size="20">
-            <br> <br>
-            <label for="tel">Numéro de télephone :</label>
-            <input type="text" id="tel" name="tel" required minlength="4" maxlength="100" size="10">
-            <label for="mail">Adresse mail :</label>
-            <input type="text" id="mail" name="mail" required minlength="4" maxlength="100" size="20">
-            <br> <br>
-            <label for="type">caractéristique :</label>
-            <input type="text" id="type" name="type" required minlength="4" maxlength="100" size="10">
-            <br> <br>
-            <button>Valider</button>
-        </div>
-    </body>
+            <button type="submit"> Valider</button>
+        </form>
+    </div>
+    <div class="utilisateur">
+        <h1>Rentrer un utilisateur</h1>
+        <label for="name">Nom de l'utilisateur:</label>
+        <input type="text" id="name" name="name" required minlength="1" maxlength="50" size="10">
+        <label for="fname">Prénom de l'utilisateur :</label>
+        <input type="text" id="fname" name="fname" required minlength="1" maxlength="50" size="10">
+        <br> <br>
+        <label for="birthday">date de naissance :</label>
+        <input type="date" id="birthday" name="birthday" required minlength="4" maxlength="8" size="10">
+        <label for="job">catégorie socio-proffessionnelle :</label>
+        <input type="text" id="job" name="job" required minlength="4" maxlength="20" size="10">
+        <br> <br>
+        <label for="adress">Adresse :</label>
+        <input type="text" id="adress" name="adress" required minlength="4" maxlength="100" size="30">
+        <label for="code">Code postal :</label>
+        <input type="text" id="code" name="code" required minlength="4" maxlength="5" size="8">
+        <label for="city">Ville :</label>
+        <input type="text" id="city" name="city" required minlength="4" maxlength="100" size="20">
+        <br> <br>
+        <label for="tel">Numéro de télephone :</label>
+        <input type="text" id="tel" name="tel" required minlength="4" maxlength="100" size="10">
+        <label for="mail">Adresse mail :</label>
+        <input type="text" id="mail" name="mail" required minlength="4" maxlength="100" size="20">
+        <br> <br>
+        <label for="type">caractéristique :</label>
+        <input type="text" id="type" name="type" required minlength="4" maxlength="100" size="10">
+        <br> <br>
+        <button>Valider</button>
+    </div>
+</body>
 
 </html>
