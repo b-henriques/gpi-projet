@@ -51,11 +51,11 @@ def creationReferentiel(request):
 
 
 def tableArticle(request):
-    contexte = { 'articles' : Article.object.all()}
+    contexte = { 'articles' : Article.objects.all()}
     return render(request, 'referentiel/afficheArticle.html', contexte)
 
 def tableIndividu(request):
-    contexte = { 'individus' : Article.object.all()}
+    contexte = { 'individus' : Article.objects.all()}
     return render(request, 'referentiel/afficheIndividu.html', contexte)
 
 def delArticle(request, pk):
