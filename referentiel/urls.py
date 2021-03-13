@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'referentiel'
 urlpatterns = [
-    path('', views.index, name='index')
+    path('creation', views.creationReferentiel, name='creationReferentiel'),
+    path('articles', views.tableArticle, name='affichageReferentiel')
 ]
