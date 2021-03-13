@@ -1,0 +1,21 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+
+{%block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/createArticle.css' %}">
+<form  method="post">
+    {% csrf_token %}
+    <h1>Rentrer un article</h1>
+    {{ form.as_p}}
+    <input type="submit" value="Créer Article" name="article">
+</form>
+<form  method="post">
+    {% csrf_token %}
+    <h1>Rentrer un utilisateur</h1>
+    {{ formInd.as_p}}
+    <input type="submit" value="Créer Individu">
+</form>
+
+
+{%endblock content %}
