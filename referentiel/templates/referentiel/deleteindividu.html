@@ -1,0 +1,20 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+<p>
+    Id:{{individu.id}};
+    Nom: {{individu.nom}};
+    Prenom: {{individu.prenom}} ;
+    Date de naissance: {{individu.datenaissance}} ;
+    Numero de telephone: {{individu.ntel}} ;
+    Adresse Mail: {{individu.mail}} ;
+    Adresse: {{individu.adresse}} ;
+    Catégorie Professionnelle: {{individu.catprofessionnelle}} ;
+    Catégorie Commercial: {{individu.catcommerciale}} ;
+</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Suprimmer Individu</button>
+    <button type="submit" name='annuler'>Annuler</button>
+</form>
+{%endblock content %}
