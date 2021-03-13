@@ -31,8 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #nous
     'referentiel.apps.ReferentielConfig',
     'publicite.apps.PubliciteConfig',
+    'Anomalies.apps.AnomaliesConfig',
+    'Commandes.apps.CommandesConfig',
+    'utilisateurs.apps.UtilisateursConfig',
+    #django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

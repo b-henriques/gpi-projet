@@ -1,0 +1,14 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+<p>
+    Id:{{article.id}};
+    Designation: {{article.designation}};
+    Prix: {{article.prix}} ;
+</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Suprimmer Article</button>
+    <button type="submit" name='annuler'>Annuler</button>
+</form>
+{%endblock content %}

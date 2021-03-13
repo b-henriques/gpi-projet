@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Adresse, Catcommerciale, Catprofessionnelle, Individu, Article
 from .forms import ArticleForm, IndividuForm
+from django.http.response import HttpResponse
 
+def index(request):
+    return HttpResponse("<h1> Referentiel </h1>")
 
 def creationReferentiel(request):
     # affiche le cde html de form
@@ -44,4 +47,30 @@ def creationReferentiel(request):
 
 def tableArticle(request):
     contexte = { 'articles' : Article.object.all()}
-    return render(request, 'referentiel/<Nomfichier>.html', contexte)
+    return render(request, 'referentiel/afficheArticle.html', contexte)
+
+def tableIndividu(request):
+    contexte = { 'individus' : Article.object.all()}
+    return render(request, 'referentiel/afficheIndividu.html', contexte)
+
+def delArticle(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if(request.method == "POST"):
+        if "annuler" in request.POST:
+            return redirect('/referentiel/articles')
+        else:
+            article.delete()
+            return redirect('/referentiel/creation')
+    contexte = { 'article' : article}
+    return render(request, 'referentiel/deletearticle.html', contexte)
+
+def delIndividu(request, pk):
+    individu = get_object_or_404(Individu, pk=pk)
+    if(request.method == "POST"):
+        if "annuler" in request.POST:
+            return redirect('/referentiel/creation')
+        else:
+            individu.delete()
+            return redirect('/referentiel/creation')
+    contexte = { 'individu' : individu}
+    return render(request, 'referentiel/deleteindividu.html', contexte)
