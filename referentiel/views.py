@@ -55,7 +55,7 @@ def tableArticle(request):
     return render(request, 'referentiel/afficheArticle.html', contexte)
 
 def tableIndividu(request):
-    contexte = { 'individus' : Article.objects.all()}
+    contexte = { 'individus' : Individu.objects.all()}
     return render(request, 'referentiel/afficheIndividu.html', contexte)
 
 def delArticle(request, pk):

@@ -1,0 +1,54 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/afficheArticle.css' %}">
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <table class=table>
+        <tr>
+            <td>Id </td>
+            <td>Categorie Commerciale</td>
+            <td>Nom</td>
+            <td>Prenom</td>
+            <td>Date de Naissance</td>
+            <td>Numero </td>
+            <td>Rue</td>
+            <td>CodePostal</td>
+            <td>Ville</td>
+            <td>Numero de telephone</td>
+            <td>Email</td>
+            <td>Categorie Professionnelle</td>
+        </tr>
+        {% for i in individus %}
+
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.catcommerciale}}</td>
+            <td>{{i.nom}}</td>
+            <td>{{i.prenom}}</td>
+            <td>{{i.datenaissance}}</td>
+            <td>{{i.adresse.numero}}</td>
+            <td>{{i.adresse.rue}}</td>
+            <td>{{i.adresse.codepostal}}</td>
+            <td>{{i.adresse.ville}}</td>
+            <td>{{i.ntel}}</td>
+            <td>{{i.mail}}</td>
+            <td>{{i.catprofessionnelle}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</body>
+
+</html>
+
+{%endblock content %}
