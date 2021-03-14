@@ -1,0 +1,33 @@
+{% load static %}
+
+<html lang="fr">
+
+<head>
+    <title>FENOUIL_LogIn</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'utilisateurs/logIn.css' %}">
+</head>
+
+<body>
+    <div class="logIn">
+        <h1>LogIn</h1>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {% if messageErreur %}
+        <p>Donnees Incorrectes</p>
+        {% endif %}
+        <label for="name">Identifiant :</label>
+        <input type="text" id="identifiant-text" name="identifiant">
+        <br> <br>
+        <label for="name">Password :</label>
+        <input type="password" id="password-text" name="motdepass">
+        <button type="submit" name='logIn'>Se Connecter</button>
+    </form>
+
+
+</body>
+
+</html>

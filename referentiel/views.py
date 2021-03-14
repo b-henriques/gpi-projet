@@ -2,7 +2,12 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Adresse, Catcommerciale, Catprofessionnelle, Individu, Article
 from .forms import ArticleForm, IndividuForm
 from django.http.response import HttpResponse
+from django.contrib.auth.decorators import permission_required
 
+#TODO: possibilite de creer cat pro en meme temps que Ind
+#TODO: modification Art ou Ind
+
+@permission_required('perm_administrerRef')
 def index(request):
     return HttpResponse("<h1> Referentiel </h1>")
 
@@ -18,7 +23,7 @@ def creationReferentiel(request):
             # affiche la val d'un champ form.cleaned_data['nom-champ']
 
     if form2.is_valid():
-        # /test
+        # affiche les donnees du formulaire
         #print(form2.cleaned_data)
 
         # creer adress
@@ -46,11 +51,11 @@ def creationReferentiel(request):
 
 
 def tableArticle(request):
-    contexte = { 'articles' : Article.object.all()}
+    contexte = { 'articles' : Article.objects.all()}
     return render(request, 'referentiel/afficheArticle.html', contexte)
 
 def tableIndividu(request):
-    contexte = { 'individus' : Article.object.all()}
+    contexte = { 'individus' : Individu.objects.all()}
     return render(request, 'referentiel/afficheIndividu.html', contexte)
 
 def delArticle(request, pk):
