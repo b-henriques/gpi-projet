@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, reverse
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
@@ -14,7 +14,7 @@ def index(request):
         if utilisateur is not None:
             login(request, utilisateur)
             # succes = redirect a une page en fonction du groupe
-            return redirect('referentiel/')
+            return redirect('/referentiel')
         else:
             message = True
     contexte = {'messageErreur': message}
