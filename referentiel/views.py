@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import permission_required
 #TODO: possibilite de creer cat pro en meme temps que Ind
 #TODO: modification Art ou Ind
 
-@permission_required('perm_administrerRef')
+#@permission_required('perm_administrerRef')
 def index(request):
     return HttpResponse("<h1> Referentiel </h1>")
 

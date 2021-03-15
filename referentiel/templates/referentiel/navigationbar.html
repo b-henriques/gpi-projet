@@ -1,4 +1,35 @@
-
-{%block content %}
-        
-{%endblock content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/navigationbar.css' %}">
+    <nav>
+      <ul>
+        <li class="deroulant"><a href="#">Prospection </a>
+          <ul class="sous">
+            <li><a href="#"> Creation Cibles de routage</a></li>
+            <li><a href="#">Envoi des Publicités</a>
+            </li>
+            <li><a href="#">Mise à jour Cibles de routage</a></li>
+            <li><a href="#">Vue ensemble Cibles de routage</a></li>
+          </ul>
+        </li>
+        <li class="deroulant"><a href="#">Commandes</a>
+          <ul class="sous">
+            <li><a href="#">Suivi des Commandes Courriers</a></li>
+            <li><a href="#">Suivi des Commandes en ligne</a></li>
+          </ul>
+        </li>
+        <li class="deroulant"><a href="#">Anomalies</a>
+        <ul class="sous">
+            <li><a href="#">Traitement des Anomalies</a></li>
+          <li><a href="#">Courriers des Anomalies</a></li>
+          </ul>
+        </li>
+        <li class="deroulant"><a href ="#">Administration du Référentiel</a>
+        <ul class="sous">
+            <li><a href="#">Mise a jour Referentiel</a></li>
+            <li><a href="creation">Creation Referentiel</a></li>
+          <li>
+            <a href="#">Vue ensemble Referentiel</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
