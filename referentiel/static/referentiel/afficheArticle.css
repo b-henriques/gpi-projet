@@ -1,4 +1,3 @@
-
 .contenu {
     padding-top: 2%;
     margin: 0 auto;
@@ -13,25 +12,27 @@
     border-collapse: collapse;
 }
 
-.entete {
-    min-height: 10px;
-}
-
-.entete>td {
+th {
+    height: 40px;
     background-color: rgb(88, 195, 238);
     text-align: center;
-    height: 30px;
 }
-.milieu{
+
+.milieu {
     border-right: solid 2px white;
-      border-left: solid 2px white;
-  }
+    border-left: solid 2px white;
+}
+
 #gauche {
     border-top-left-radius: 20px;
 }
 
 #droite {
     border-top-right-radius: 20px;
+}
+
+tr{
+    height: 40px;
 }
 
 .corps>td {

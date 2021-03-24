@@ -15,23 +15,22 @@
 <body>
     <div class="contenu">
         <table class="tableReferentiel">
-            <tr class="entete">
-                <td id=gauche>Id </td>
-                <td class=milieu>Categorie Commerciale</td>
-                <td class=milieu>Nom</td>
-                <td class=milieu>Prenom</td>
-                <td class=milieu>Date de Naissance</td>
-                <td class=milieu>Numero </td>
-                <td class=milieu>Rue</td>
-                <td class=milieu>CodePostal</td>
-                <td class=milieu>Ville</td>
-                <td class=milieu>Numero de telephone</td>
-                <td class=milieu>Email</td>
-                <td id=droite>Categorie Professionnelle</td>
-            </tr>
+            <th id=gauche width="10%">Id </th>
+            <th class=milieu width="10%">Categorie Commerciale</th>
+            <th class=milieu width="10%">Nom</th>
+            <th class=milieu width="10%">Prenom</th>
+            <th class=milieu width="10%">Date de Naissance</th>
+            <th class=milieu width="10%">Numero </th>
+            <th class=milieu width="10%">Rue</th>
+            <th class=milieu width="10%">CodePostal</th>
+            <th class=milieu width="10%">Ville</th>
+            <th class=milieu width="10%">Numero de telephone</th>
+            <th class=milieu width="10%">Email</th>
+            <th id=droite width="10%">Categorie Professionnelle</th>
+
             {% for i in individus %}
 
-            <tr>
+            <tr class=corps>
                 <td>{{i.id}}</td>
                 <td>{{i.catcommerciale}}</td>
                 <td>{{i.nom}}</td>
@@ -44,6 +43,7 @@
                 <td>{{i.ntel}}</td>
                 <td>{{i.mail}}</td>
                 <td>{{i.catprofessionnelle}}</td>
+                <td width="10%"><a href="{% url 'referentiel:supressionIndividu' pk=i.id%}">Supprimer</a></td>
             </tr>
 
             {% endfor %}
