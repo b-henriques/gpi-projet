@@ -1,6 +1,37 @@
-table {
+.contenu {
+    margin: 0 auto;
+    width: 80%;
+    min-height: 500px;
+    border-radius: 3px;
+}
+
+.tableReferentiel {
+    table-layout: fixed;
+    width: 100%;
     border-collapse: collapse;
 }
-td {
+
+.entete {
+    min-height: 10px;
+}
+
+.entete>td {
+    background-color: rgb(88, 195, 238);
+    text-align: center;
+    height: 30px;
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+}
+
+#gauche {
+    border-top-left-radius: 20px;
+}
+
+#droite {
+    border-top-right-radius: 20px;
+}
+
+.corps>td {
     border: 1px solid black;
+    text-align: center;
 }

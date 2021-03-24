@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Administration du Referentiel</title>
-</head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'referentiel/navigationbar.css' %}">
     {%include 'referentiel/navigationBar.html' %}
+</head>
+<body>
+    {%block content %}
 
-    <body>
-        {%block content %}
-        
-        {%endblock content %}
-    </body>
+    {%endblock content %}
+</body>
 
 
 </html>

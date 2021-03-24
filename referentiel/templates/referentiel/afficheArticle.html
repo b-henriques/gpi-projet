@@ -3,32 +3,26 @@
 {%block content %}
 
 {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'referentiel/afficheArticle.css' %}">
 
-<link rel="stylesheet" type="text/css" href="{% static 'referentiel/afficheArticle.css' %}">
+<div class="contenu">
+    <table class="tableReferentiel">
+        <tr class="entete">
+            <td id=gauche>Id de l'article</td>
+            <td id=milieu>Désignation</td>
+            <td id=droite>Prix</td>
+        </tr>
 
-<html>
-    <head>
+        {% for i in articles %}
 
-    </head>
-    <body>
-        <table class = table>
-            <tr>
-                <td>Id de l'article</td>
-                <td>Désignation</td>
-                <td>Prix</td>
-            </tr>
+        <tr class="corps">
+            <td>{{i.id}}</td>
+            <td>{{i.designation}}</td>
+            <td>{{i.prix}}</td>
+        </tr>
 
-            {% for i in articles %}
-            
-            <tr>
-                <td>{{i.id}}</td>
-                <td>{{i.designation}}</td>
-                <td>{{i.prix}}</td>
-            </tr>
-
-            {% endfor %}
-        </table>
-    </body>
-</html>
+        {% endfor %}
+    </table>
+</div>
 
 {%endblock content %}
