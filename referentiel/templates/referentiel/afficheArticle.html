@@ -3,32 +3,25 @@
 {%block content %}
 
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'referentiel/afficheArticle.css' %}">
 
-<html>
-    <head>
+<div class="contenu">
+    <table class="tableReferentiel">
+        <th width="10%" id=gauche>Id de l'article</th>
+        <th width="60%" class=milieu>Désignation</th>
+        <th width="20%" id=droite>Prix</th>
 
-    </head>
-    <body>
-        <table class = table>
-            <tr>
-                <td>Id de l'article</td>
-                <td>Désignation</td>
-                <td>Prix</td>
-            </tr>
+        {% for i in articles %}
 
-            {% for i in articles %}
-            
-            <tr>
-                <td>{{i.id}}</td>
-                <td>{{i.designation}}</td>
-                <td>{{i.prix}}</td>
-            </tr>
+        <tr class="corps">
+            <td>{{i.id}}</td>
+            <td>{{i.designation}}</td>
+            <td>{{i.prix}}</td>
+            <td width="10%"><a href="{% url 'referentiel:supressionArticle' pk=i.id%}">Supprimer</a></td>
+        </tr>
 
-            {% endfor %}
-        </table>
-    </body>
-</html>
+        {% endfor %}
+    </table>
+</div>
 
 {%endblock content %}
