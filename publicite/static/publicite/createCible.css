@@ -1,12 +1,56 @@
-.column {
+.column1 {
     float: left;
-    width: 46%;
-    background-color: blue;
-    margin: 1%;
+    width: 20%;
+    margin-left: 10px;
+    border: 5px solid black;
+}
+.column2 {
+    float: left;
+    width: 70%;
+    margin-left: 10px;
+    border: 5px solid black;
+}
+
+.row {
+    margin-top: 50px;
 }
 
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+.tableReferentiel {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    height: 40px;
+    background-color: rgb(88, 195, 238);
+    text-align: center;
+}
+
+.milieu {
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+}
+
+#gauche {
+    border-top-left-radius: 20px;
+}
+
+#droite {
+    border-top-right-radius: 20px;
+}
+
+tr {
+    height: 40px;
+}
+
+.corps>td {
+    border: 1px solid black;
+    text-align: center;
 }

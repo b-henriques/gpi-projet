@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'publicite/createCible.css' %}">
 
 <div class="row">
-    <div class="column">
+    <div class="column1">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p}}
@@ -14,7 +14,7 @@
             <input type="submit" value="Créer Cible" name="create">
         </form>
     </div>
-    <div class="column">
+    <div class="column2">
         <table class="tableReferentiel">
             <th id=gauche width="10%">Id </th>
             <th class=milieu width="10%">Categorie Commerciale</th>
@@ -25,12 +25,11 @@
             <th class=milieu width="10%">Ville</th>
             <th id=droite width="10%">Categorie Professionnelle</th>
 
-
-            <tr class=corps>
             {% if individus == None %}
-            <td colspan="8">Aucun individu correspond à ces critères</td>
-            {% endif %}
+            <tr class=corps>
+                <td colspan="8">Aucun individu correspond à ces critères</td>
             </tr>
+            {% endif %}
             {% for i in individus %}
             <tr class=corps>
                 <td>{{i.id}}</td>
