@@ -3,10 +3,17 @@ from referentiel.models import Article, Individu
 
 # Create your models here.
 
+class Cible(models.Model):
+    individus = models.ManyToManyField(Individu)
+    valide = models.BooleanField(default=False)
+
+
+
+
+
 
 class Publicite(models.Model):
-    individus = models.ManyToManyField(Individu)
-    articles = models.ManyToManyField(Article)
+    cible = models.ForeignKey(Cible, on_delete=models.CASCADE)
     titre = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     dateenvoi = models.DateTimeField()

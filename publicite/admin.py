@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Publicite
+from .models import Cible, Publicite
 
 # Register your models here.
-aPublicite = [Publicite]
+aPublicite = [Publicite, Cible]
 admin.site.register(aPublicite)

@@ -1,0 +1,50 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'publicite/createCible.css' %}">
+
+<div class="row">
+    <div class="column">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit" value="Voir Résultats" name="resultats">
+            <input type="submit" value="Créer Cible" name="create">
+        </form>
+    </div>
+    <div class="column">
+        <table class="tableReferentiel">
+            <th id=gauche width="10%">Id </th>
+            <th class=milieu width="10%">Categorie Commerciale</th>
+            <th class=milieu width="10%">Nom</th>
+            <th class=milieu width="10%">Prenom</th>
+            <th class=milieu width="10%">Date de Naissance</th>
+            <th class=milieu width="10%">CodePostal</th>
+            <th class=milieu width="10%">Ville</th>
+            <th id=droite width="10%">Categorie Professionnelle</th>
+
+
+            <tr class=corps>
+            {% if individus == None %}
+            <td colspan="8">Aucun individu correspond à ces critères</td>
+            {% endif %}
+            </tr>
+            {% for i in individus %}
+            <tr class=corps>
+                <td>{{i.id}}</td>
+                <td>{{i.catcommerciale}}</td>
+                <td>{{i.nom}}</td>
+                <td>{{i.prenom}}</td>
+                <td>{{i.datenaissance}}</td>
+                <td>{{i.adresse.codepostal}}</td>
+                <td>{{i.adresse.ville}}</td>
+                <td>{{i.catprofessionnelle}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{%endblock content %}
