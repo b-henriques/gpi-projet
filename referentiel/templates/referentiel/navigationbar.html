@@ -4,7 +4,7 @@
   <ul>
     <li class="deroulant"><a href="#">Prospection </a>
       <ul class="sous">
-        <li><a href="#"> Creation Cibles de routage</a></li>
+        <li><a href="{% url 'publicite:creationCible'%}"> Creation Cibles de routage</a></li>
         <li><a href="#">Envoi des Publicités</a>
         </li>
         <li><a href="#">Mise à jour Cibles de routage</a></li>
@@ -26,10 +26,10 @@
     <li class="deroulant"><a href="#">Administration du Référentiel</a>
       <ul class="sous">
         <li><a href="#">Mise a jour Referentiel</a></li>
-        <li><a href="creation">Creation Referentiel</a></li>
+        <li><a href="{% url 'referentiel:creationReferentiel'%}">Creation Referentiel</a></li>
         <li>
-        <li><a href="articles">Vue ensemble Referentiel_Articles</a></li>
-        <li><a href="individus">Vue ensemble Referentiel_Individus</a></li>
+        <li><a href="{% url 'referentiel:affichageReferentielArticles'%}">Vue ensemble Referentiel_Articles</a></li>
+        <li><a href="{% url 'referentiel:affichageReferentielIndividus'%}">Vue ensemble Referentiel_Individus</a></li>
     </li>
   </ul>
   </li>

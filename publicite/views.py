@@ -12,13 +12,11 @@ def index(request):
 def createPublicite(request):
     form = PubliciteForm(request.POST or None)
     if form.is_valid():
-        print("OK")
         form.save()
     contexte = {'form':PubliciteForm()}
     return render(request, 'publicite/createPublicite.html', contexte)
 
 def createCible(request):
-    print(request.POST)
     form = CibleForm(request.POST or None)
     if form.is_valid():
         #individus = Individu.objects.filter(adresse.codepostal__startswith=form.cleaned_data['departementResidence'])
