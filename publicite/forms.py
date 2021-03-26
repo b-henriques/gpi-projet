@@ -12,3 +12,10 @@ class CibleForm(forms.Form):
     departementResidence = forms.IntegerField(label="Departement", min_value=0, max_value=100)
     catprofessionnelle = forms.ModelMultipleChoiceField(queryset=Catprofessionnelle.objects.all())
     catcommerciale = forms.ModelMultipleChoiceField(queryset=Catcommerciale.objects.all())
+
+    def clean(self):
+        data = super().clean()
+        if self.cleaned_data.get('ageMax')<self.cleaned_data.get('ageMin'):
+            self._errors['ageMax'] = self.error_class([
+                'Age Maximale doit etre superieure à age minimale'])
+        return data
