@@ -15,7 +15,7 @@ def createPublicite(request):
     if form.is_valid():
         form.save()
     contexte = {'form':PubliciteForm()}
-    return render(request, 'publicite/createPublicite.html', contexte)
+    return render(request, 'publicite/editPublicite.html', contexte)
 
 def createCible(request):
     form = CibleForm(request.POST or None)
