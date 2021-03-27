@@ -7,11 +7,6 @@ class Cible(models.Model):
     individus = models.ManyToManyField(Individu)
     valide = models.BooleanField(default=False)
 
-
-
-
-
-
 class Publicite(models.Model):
     cible = models.ForeignKey(Cible, on_delete=models.CASCADE)
     titre = models.CharField(max_length=200)

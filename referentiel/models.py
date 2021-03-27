@@ -18,21 +18,6 @@ class Catprofessionnelle(models.Model):
         return self.nom
 
 
-class Catcommerciale(models.Model):
-    prospect = "PROSPECT"
-    client = "CLIENT"
-    interdit = "INTERDIT"
-    cat_choix = [(prospect, "possible client"),
-                    (client, "client"),
-                    (interdit, " client interdit")
-                    ]
-
-    nom = models.CharField(max_length=20, choices=cat_choix, default=prospect)
-
-    def __str__(self) -> str:
-        return self.nom
-
-
 class Adresse(models.Model):
     numero = models.IntegerField()
     rue = models.CharField(max_length=100)
@@ -41,6 +26,7 @@ class Adresse(models.Model):
 
     def __str__(self) -> str:
         return str(self.numero)+self.rue+"\n"+str(self.codepostal)+self.ville
+
 
 class Individu(models.Model):
     nom = models.CharField(max_length=50)
@@ -51,8 +37,16 @@ class Individu(models.Model):
     adresse = models.ForeignKey(Adresse, on_delete=models.CASCADE)
     catprofessionnelle = models.ForeignKey(
         Catprofessionnelle, on_delete=models.CASCADE)
-    catcommerciale = models.ForeignKey(
-        Catcommerciale, on_delete=models.CASCADE)
+
+    prospect = "PROSPECT"
+    client = "CLIENT"
+    interdit = "INTERDIT"
+    cat_choix = [(prospect, "possible client"),
+                 (client, "client"),
+                 (interdit, " client interdit")
+                 ]
+    catcommerciale = models.CharField(
+        max_length=20, choices=cat_choix, default=prospect)
 
     def __str__(self) -> str:
         return "(id = "+str(self.id)+", nom= "+self.nom+", prenom= "+self.prenom

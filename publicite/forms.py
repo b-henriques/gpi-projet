@@ -1,4 +1,4 @@
-from referentiel.models import Article, Catcommerciale, Catprofessionnelle
+from referentiel.models import Article, Catprofessionnelle, Individu
 from django import forms
 from django.forms.models import ModelMultipleChoiceField, inlineformset_factory
 from .models import Cible, Publicite
@@ -11,7 +11,7 @@ class CibleForm(forms.Form):
     ageMax = forms.IntegerField(label="AgeMax:", min_value=18, max_value=100)
     departementResidence = forms.IntegerField(label="Departement", min_value=0, max_value=100)
     catprofessionnelle = forms.ModelMultipleChoiceField(queryset=Catprofessionnelle.objects.all())
-    catcommerciale = forms.ModelMultipleChoiceField(queryset=Catcommerciale.objects.all())
+    catcommerciale = forms.MultipleChoiceField(choices=Individu.cat_choix)
 
     def clean(self):
         data = super().clean()

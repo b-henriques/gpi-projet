@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Adresse, Catcommerciale, Catprofessionnelle, Individu, Article
+from .models import Adresse, Catprofessionnelle, Individu, Article
 from .forms import ArticleForm, IndividuForm
 from django.http.response import HttpResponse
 from django.contrib.auth.decorators import permission_required
@@ -23,6 +23,7 @@ def creationReferentiel(request):
             # affiche la val d'un champ form.cleaned_data['nom-champ']
 
     if form2.is_valid():
+        print(True)
         # affiche les donnees du formulaire
         #print(form2.cleaned_data)
 
