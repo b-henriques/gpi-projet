@@ -1,0 +1,14 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+
+{%block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/createArticle.css' %}">
+<form  method="post">
+    {% csrf_token %}
+    <h1>Modification Individu</h1>
+    {{ form.as_p}}
+    <input type="submit" value="Modifier Individu">
+    <a href="{% url 'referentiel:supressionIndividu' pk=id%}">Supprimer</a>
+</form>
+{%endblock content %}

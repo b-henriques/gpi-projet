@@ -15,35 +15,33 @@
 <body>
     <div class="contenu">
         <table class="tableReferentiel">
-            <th id=gauche width="10%">Id </th>
-            <th class=milieu width="10%">Categorie Commerciale</th>
-            <th class=milieu width="10%">Nom</th>
-            <th class=milieu width="10%">Prenom</th>
-            <th class=milieu width="10%">Date de Naissance</th>
-            <th class=milieu width="10%">Numero </th>
-            <th class=milieu width="10%">Rue</th>
-            <th class=milieu width="10%">CodePostal</th>
-            <th class=milieu width="10%">Ville</th>
-            <th class=milieu width="10%">Numero de telephone</th>
-            <th class=milieu width="10%">Email</th>
-            <th id=droite width="10%">Categorie Professionnelle</th>
+            <th id=gauche width="13%">Id </th>
+            
+            <th class=milieu width="13%">Nom</th>
+            <th class=milieu width="13%">Prenom</th>
+
+            <th class=milieu width="13%">Categorie Commerciale</th>
+            <th class=milieu width="13%">Categorie Professionnelle</th>
+
+            <th class=milieu width="13%">Numero de telephone</th>
+            <th id=droite width="13%">Email</th>
+           
 
             {% for i in individus %}
 
             <tr class=corps>
                 <td>{{i.id}}</td>
-                <td>{{i.catcommerciale}}</td>
+               
                 <td>{{i.nom}}</td>
                 <td>{{i.prenom}}</td>
-                <td>{{i.datenaissance}}</td>
-                <td>{{i.adresse.numero}}</td>
-                <td>{{i.adresse.rue}}</td>
-                <td>{{i.adresse.codepostal}}</td>
-                <td>{{i.adresse.ville}}</td>
+
+                <td>{{i.catcommerciale}}</td>
+                <td>{{i.catprofessionnelle}}</td>
+                
                 <td>{{i.ntel}}</td>
                 <td>{{i.mail}}</td>
-                <td>{{i.catprofessionnelle}}</td>
-                <td width="10%"><a href="{% url 'referentiel:supressionIndividu' pk=i.id%}">Supprimer</a></td>
+                
+                <td width="10%"><a href="{% url 'referentiel:modifIndividu' pk=i.id%}">Details</a></td>
             </tr>
 
             {% endfor %}

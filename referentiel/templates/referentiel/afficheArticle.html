@@ -17,6 +17,7 @@
             <td>{{i.id}}</td>
             <td>{{i.designation}}</td>
             <td>{{i.prix}}</td>
+            <td width="10%"><a href="{% url 'referentiel:modifArticle' pk=i.id%}">Modifier</a></td>
             <td width="10%"><a href="{% url 'referentiel:supressionArticle' pk=i.id%}">Supprimer</a></td>
         </tr>
 
