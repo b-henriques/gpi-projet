@@ -1,3 +1,4 @@
+from django.forms.forms import Form
 from publicite.models import Cible
 from referentiel.models import Individu
 from publicite.forms import CibleForm, PubliciteForm
@@ -42,3 +43,15 @@ def createCible(request):
     individus = None
     contexte = {'form': form, 'individus': individus}
     return render(request, 'publicite/createCible.html', contexte)
+
+def validateCible(request):
+    if 'valider' in request.POST:
+        id = request.POST.get('valider')
+        cible = Cible.objects.get(id=id)
+        cible.valide = True
+        cible.save()
+        
+    cibles = Cible.objects.filter(valide=False)
+    contexte = {'cibles': cibles}
+    return render(request, 'publicite/validateCible.html', contexte)
+

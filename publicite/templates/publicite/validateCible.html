@@ -1,0 +1,43 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'publicite/createCible.css' %}">
+
+<table class=cible width = 100%>
+    <th id=gauche width="10%">Id Cible </th>
+    <th id=droite width="89%">Individus</th>
+    {% for c in cibles %}
+    <tr class=corps>
+        <td>{{c.id}}</td>
+        <td>
+            <table class="tableReferentiel">
+                <th id=gauche width="20%">Id </th>
+                <th class=milieu width="20%">Categorie Commerciale</th>
+                <th class=milieu width="20%">Date de Naissance</th>
+                <th class=milieu width="20%">CodePostal</th>
+                <th id=droite width="20%">Categorie Professionnelle</th>
+
+                {% for i in c.individus.all %}
+                <tr class=corps >
+                    <td>{{i.id}}</td>
+                    <td>{{i.catcommerciale}}</td>
+                    <td>{{i.datenaissance}}</td>
+                    <td>{{i.adresse.codepostal}}</td>
+                    <td>{{i.catprofessionnelle}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </td>
+        <td>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" value={{c.id}} name="valider">Valider</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{%endblock content %}

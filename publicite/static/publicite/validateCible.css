@@ -1,0 +1,40 @@
+.criteres {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cible {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    height: 40px;
+    background-color: rgb(88, 195, 238);
+    text-align: center;
+}
+
+.milieu {
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+}
+
+#gauche {
+    border-top-left-radius: 20px;
+}
+
+#droite {
+    border-top-right-radius: 20px;
+}
+
+tr {
+    height: 40px;
+    max-height: 50px;
+}
+
+.corps>td {
+    border: 1px solid black;
+    text-align: center;
+}
