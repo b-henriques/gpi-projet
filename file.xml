@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0"><object model="publicite.publicite" pk="11"><field name="cible" rel="ManyToOneRel" to="publicite.cible">1</field><field name="titre" type="CharField">sdq</field><field name="description" type="CharField">sdq</field><field name="dateenvoi" type="DateTimeField">2021-03-27T16:36:41.470601+00:00</field><field name="format" type="CharField">PST</field><field name="articles" rel="ManyToManyRel" to="referentiel.article"><object pk="2"></object></field></object></django-objects>

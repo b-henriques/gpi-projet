@@ -1,0 +1,23 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+
+
+{%block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'publicite/createCible.css' %}">
+<table class="tableReferentiel">
+    <th id=gauche width="30%">Id </th>
+    <th class=milieu width="30%">Titre</th>
+    <th id=droite width="30%">Description</th>
+
+
+    {% for i in publicites %}
+    <tr class=corps>
+        <td>{{i.id}}</td>
+        <td>{{i.titre}}</td>
+        <td>{{i.description}}</td>
+        <td><a href="{% url 'publicite:pubToXML' pk=i.id%}">Envoyer</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{%endblock content %}
