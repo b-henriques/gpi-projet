@@ -1,22 +1,21 @@
+from Commandes.models import Reglement, Vente
 from django import forms
-from django.forms.widgets import DateInput
-from .models import Article, Catprofessionnelle, Individu
+from django.db.models.fields import CharField
+from referentiel.models import Catprofessionnelle, Individu
 
-
-class ArticleForm(forms.ModelForm):
-    prix = forms.DecimalField(
-        max_digits=6, decimal_places=2, label="Prix :", min_value=0)
-
-    class Meta:
-        model = Article
-        fields = '__all__'
 
 
 class DateNaissance(forms.DateInput):
     input_type = 'date'
 
 
-class IndividuForm(forms.Form):
+class CommandeFormIndividuConnu(forms.Form):
+    nom = forms.CharField(max_length=50, label="Nom du client:")
+    prenom = forms.CharField(max_length=50, label="Prénom du client :")
+    ntel = forms.DecimalField(
+        max_digits=10, decimal_places=0, label="Numéro de télephone :", min_value=0)
+
+class CommandeFormIndividu(forms.Form):
     nom = forms.CharField(max_length=50, label="Nom du client:")
     prenom = forms.CharField(max_length=50, label="Prénom du client :")
     datenaissance = forms.DateField(
@@ -34,3 +33,21 @@ class IndividuForm(forms.Form):
         queryset=Catprofessionnelle.objects.all())
     catcommerciale = forms.ChoiceField(
         choices=Individu.cat_choix, initial=Individu.prospect)
+
+
+class CommandeArticleForm(forms.ModelForm):
+    class Meta:
+        model = Vente
+        fields = ['article', 'quantite']
+
+
+class CommandeChequeForm(forms.ModelForm):
+    class Meta:
+        model = Reglement
+        fields = ['numero', 'date', 'montant', 'banque']
+
+
+class CommandeChequeForm(forms.ModelForm):
+    class Meta:
+        model = Reglement
+        fields = ['numero', 'date', 'montant', 'date_expiration']
