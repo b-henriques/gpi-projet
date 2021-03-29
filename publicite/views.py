@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.db.models.fields import NullBooleanField
 from publicite.models import Cible, Publicite
 from referentiel.models import Individu
@@ -10,9 +11,12 @@ from django.urls import reverse
 
 
 # Create your views here.
+
+@permission_required("utilisateurs.perm_publicite")
 def index(request):
     return render(request, 'referentiel/referentiel_view.html')
 
+@permission_required("utilisateurs.perm_publicite")
 def createPublicite(request):
     form = PubliciteForm(request.POST or None)
     if form.is_valid():
@@ -20,6 +24,7 @@ def createPublicite(request):
     contexte = {'form':PubliciteForm()}
     return render(request, 'publicite/editPublicite.html', contexte)
 
+@permission_required("utilisateurs.perm_publicite")
 def createCible(request):
     form = CibleForm(request.POST or None)
     if form.is_valid():
@@ -47,6 +52,7 @@ def createCible(request):
     contexte = {'form': form, 'individus': individus}
     return render(request, 'publicite/createCible.html', contexte)
 
+@permission_required("utilisateurs.perm_publicite")
 def validateCible(request):
     if 'valider' in request.POST:
         id = request.POST.get('valider')
@@ -58,11 +64,13 @@ def validateCible(request):
     contexte = {'cibles': cibles}
     return render(request, 'publicite/validateCible.html', contexte)
 
+@permission_required("utilisateurs.perm_publicite")
 def envoiPublicite(request):
     publicites = Publicite.objects.filter(dateenvoi__isnull=True)
     contexte = {'publicites':publicites}
     return render(request, 'publicite/envoiPublicite.html', contexte)
-
+    
+@permission_required("utilisateurs.perm_publicite")
 def pubToXML(request, pk):
     publicite = get_object_or_404(Publicite, pk=pk)
     publicite.dateenvoi=datetime.datetime.now()

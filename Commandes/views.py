@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from Anomalies.models import Anomalie
 from datetime import date
 from referentiel.forms import ArticleForm
@@ -10,14 +11,14 @@ from django.urls import reverse
 
 # Create your views here.
 
-
+@permission_required("utilisateurs.perm_commandes")
 def index(request):
     return render(request, 'referentiel/referentiel_view.html')
 
 
-#TODO: paiement
+# TODO: verification carte
 
-
+@permission_required("utilisateurs.perm_commandes")
 def createCommandeIndividu(request):
     form = CommandeFormIndividuConnu(request.POST or None)
     if form.is_valid():
@@ -38,6 +39,7 @@ def createCommandeIndividu(request):
     return render(request, 'commandes/createCommande.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def createCommandeIndividuNouveau(request):
     form = CommandeFormIndividu(request.POST or None)
     if form.is_valid():
@@ -67,6 +69,7 @@ def createCommandeIndividuNouveau(request):
     return render(request, 'commandes/createCommande.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def createCommandeArticle(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     articles = Vente.objects.filter(commande=commande)
@@ -89,12 +92,14 @@ def createCommandeArticle(request, pk):
     return render(request, 'commandes/createCommande.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def createCommandeReglementChoix(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     contexte = {'commande': commande.pk}
     return render(request, 'commandes/reglementChoix.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def createCommandeReglementCheque(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     form = CommandeChequeForm(request.POST or None)
@@ -113,6 +118,7 @@ def createCommandeReglementCheque(request, pk):
     return render(request, 'commandes/reglement.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def createCommandeReglementCarte(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     form = CommandeCarteForm(request.POST or None)
@@ -132,6 +138,7 @@ def createCommandeReglementCarte(request, pk):
     return render(request, 'commandes/reglement.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def commandeRecap(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     articles = Vente.objects.filter(commande=commande)
@@ -141,6 +148,7 @@ def commandeRecap(request, pk):
     return render(request, 'commandes/commandeRecap.html', contexte)
 
 
+@permission_required("utilisateurs.perm_commandes")
 def validiteCommande(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     articles = Vente.objects.filter(commande=commande)
@@ -171,6 +179,8 @@ def validiteCommande(request, pk):
         return redirect(reverse('commandes:reponseValiditeCommande', args=[pk]))
     return render(request, 'commandes/validerCommande.html', contexte)
 
+
+@permission_required("utilisateurs.perm_commandes")
 def reponseValiditeCommande(request, pk):
     commande = get_object_or_404(Commande, pk=pk)
     anomalies = Anomalie.objects.filter(commande=commande)

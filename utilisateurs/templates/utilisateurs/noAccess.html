@@ -1,0 +1,22 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+<p>
+Vous appartenez aux groupes 
+{% for g in groupes %}
+{{g}}
+{% endfor %}
+</p>
+<p>la page que vous essayez de visiter ne vous est pas accessible</p>
+
+{% if 'referentiel' in groupes %}
+<a href="{% url 'referentiel:home'%}"">Referentiel Home</a>
+
+{% elif 'publicite' in groupes %}
+<a href="{% url 'publicite:home'%}"">Publicite Home</a>
+{% elif 'commandes' in groupes %}
+<a href="{% url 'commandes:home'%}"">Commandes Home</a>
+{% endif %}
+
+{%endblock content %}

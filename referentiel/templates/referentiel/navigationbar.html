@@ -12,7 +12,7 @@
     </li>
     <li class="deroulant"><a href="#">Commandes</a>
       <ul class="sous">
-        <li><a href="#">Suivi des Commandes Courriers</a></li>
+        <li><a href="{% url 'commandes:createCommandeIndividu'%}">Enregistrement de Commandes</a></li>
         <li><a href="#">Suivi des Commandes en ligne</a></li>
       </ul>
     </li>
@@ -28,6 +28,8 @@
         <li><a href="{% url 'referentiel:affichageReferentielArticles'%}">Vue ensemble Referentiel_Articles</a></li>
         <li><a href="{% url 'referentiel:affichageReferentielIndividus'%}">Vue ensemble Referentiel_Individus</a></li>
       </ul>
+    </li>
+    <li class="deroulant"><a href="{% url 'utilisateurs:logOut'%}">LogOut</a>
     </li>
   </ul>
 </nav>
