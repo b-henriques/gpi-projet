@@ -5,8 +5,6 @@ from django.http.response import HttpResponse
 from django.contrib.auth.decorators import permission_required
 from django.urls import reverse
 
-# TODO: possibilite de creer cat pro en meme temps que Ind
-# TODO: modification Art ou Ind
 
 @permission_required("utilisateurs.perm_administrerRef")
 def index(request):
