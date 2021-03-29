@@ -8,13 +8,11 @@ from django.urls import reverse
 # TODO: possibilite de creer cat pro en meme temps que Ind
 # TODO: modification Art ou Ind
 
-# @permission_required('perm_administrerRef')
-
-
+@permission_required("utilisateurs.perm_administrerRef")
 def index(request):
     return render(request, 'referentiel/referentiel_view.html')
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def creationReferentiel(request):
     # affiche le cde html de form
     # print(form)
@@ -53,17 +51,17 @@ def creationReferentiel(request):
     context = {'form': ArticleForm(), 'formInd': IndividuForm()}
     return render(request, 'referentiel/createForm.html', context)
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def tableArticle(request):
     contexte = {'articles': Article.objects.all()}
     return render(request, 'referentiel/afficheArticle.html', contexte)
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def tableIndividu(request):
     contexte = {'individus': Individu.objects.all()}
     return render(request, 'referentiel/afficheIndividu.html', contexte)
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def delArticle(request, pk):
     article = get_object_or_404(Article, pk=pk)
     if(request.method == "POST"):
@@ -75,7 +73,7 @@ def delArticle(request, pk):
     contexte = {'article': article}
     return render(request, 'referentiel/deletearticle.html', contexte)
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def delIndividu(request, pk):
     individu = get_object_or_404(Individu, pk=pk)
     if(request.method == "POST"):
@@ -87,7 +85,7 @@ def delIndividu(request, pk):
     contexte = {'individu': individu}
     return render(request, 'referentiel/deleteindividu.html', contexte)
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def modifierArticle(request, pk):
     article = get_object_or_404(Article, pk=pk)
     form = ArticleForm(request.POST or None, instance=article)
@@ -97,7 +95,7 @@ def modifierArticle(request, pk):
     contexte = {'form': form}
     return render(request, 'referentiel/modifArticle.html', contexte)
 
-
+@permission_required("utilisateurs.perm_administrerRef")
 def modifierIndividu(request, pk):
     individu = get_object_or_404(Individu, pk=pk)
     form = IndividuForm(request.POST or None, initial={
