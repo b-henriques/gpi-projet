@@ -1,0 +1,17 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <p>Montant attendu:{{total}}; Montant reglé:{{montant}}</p>
+    {% if reglement.type == Anomalie.type_cheque %}
+    <label for="chequeSigne">Le cheque est-il signé?</label>
+    <input type="checkbox" name="chequeSigne">
+    {% endif %}
+    <p>Test numero de carte valide à implémenter</p>
+    <input type="submit" value="Tester Validité de la commande", name="valider">
+</form>
+
+
+{%endblock content %}

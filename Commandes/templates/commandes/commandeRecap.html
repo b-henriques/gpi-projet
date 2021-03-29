@@ -1,0 +1,51 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+
+<h1>Commande {{commande.pk}}</h1>
+
+<h2>Individu</h2>
+<h3>Id</h3>
+<p>{{commande.client.pk}}</p>
+<h3>Nom</h3>
+<p>{{commande.client.nom}}</p>
+<h3>Prenom</h3>
+<p>{{commande.client.prenom}}</p>
+<h3>Ntel</h3>
+<p>{{commande.client.ntel}}</p>
+
+<h2>Articles</h2>
+<table>
+    <th>Id</th>
+    <th>Prix</th>
+    <th>Quantite</th>
+    {% for a in articles %}
+    <tr>
+        <td>{{a.article.id}}</td>
+        <td>{{a.article.prix}}</td>
+        <td>{{a.quantite}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Reglement</h2>
+<h3>Type</h3> 
+<p>{{reglement.type}}</p>
+<h3>Date</h3>
+<p>{{reglement.date}}</p>
+<h3>Montant</h3>
+<p>{{reglement.montant}}</p>
+<h3>numero</h3>
+<p>{{reglement.numero}}</p>
+{% if reglement.type == 'cheque' %}
+<h3>Banque</h3>
+<p>{{reglement.banque}}</p>
+{% else %}
+<h3>Date expiration</h3>
+<p>{{reglement.date_expiration}}</p>
+{% endif %}
+
+
+<a href="{% url 'commandes:validiteCommande' pk=commande.pk %}">Valider Commande</a>
+{%endblock content %}

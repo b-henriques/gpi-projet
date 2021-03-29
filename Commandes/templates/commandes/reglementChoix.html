@@ -1,0 +1,9 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+<h1>Type de reglement</h1>
+<a href="{% url 'commandes:createCommandeReglementCheque' pk=commande %}">Cheque</a>
+<a href="{% url 'commandes:createCommandeReglementCarte' pk=commande %}">CarteBancaire</a>
+
+{%endblock content %}

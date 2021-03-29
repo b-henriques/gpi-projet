@@ -11,7 +11,7 @@ from django.urls import reverse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("<h1> Publicite </h1>")
+    return render(request, 'referentiel/referentiel_view.html')
 
 def createPublicite(request):
     form = PubliciteForm(request.POST or None)

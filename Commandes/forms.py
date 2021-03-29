@@ -4,7 +4,6 @@ from django.db.models.fields import CharField
 from referentiel.models import Catprofessionnelle, Individu
 
 
-
 class DateNaissance(forms.DateInput):
     input_type = 'date'
 
@@ -14,6 +13,7 @@ class CommandeFormIndividuConnu(forms.Form):
     prenom = forms.CharField(max_length=50, label="Prénom du client :")
     ntel = forms.DecimalField(
         max_digits=10, decimal_places=0, label="Numéro de télephone :", min_value=0)
+
 
 class CommandeFormIndividu(forms.Form):
     nom = forms.CharField(max_length=50, label="Nom du client:")
@@ -42,12 +42,16 @@ class CommandeArticleForm(forms.ModelForm):
 
 
 class CommandeChequeForm(forms.ModelForm):
+    
     class Meta:
         model = Reglement
-        fields = ['numero', 'date', 'montant', 'banque']
+        fields = ['numero', 'montant', 'banque']
 
 
-class CommandeChequeForm(forms.ModelForm):
+class CommandeCarteForm(forms.ModelForm):
+    date_expiration = forms.DateField(
+        label="Date du reglement :", widget=DateNaissance())
+
     class Meta:
         model = Reglement
-        fields = ['numero', 'date', 'montant', 'date_expiration']
+        fields = ['numero', 'montant', 'date_expiration']

@@ -1,0 +1,18 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% if valide %}
+<h1>Commande Valide</h1>
+<p>La commande a été transmise au système DÉCO-PERSO-STOCK. (à impléménter)</p>
+{% else %}
+<h1>Commande Invalide</h1>
+<h2>Anomalies:</h2>
+{% for a in anomalies %}
+<p>{{a.type}}</p>
+{% endfor %}
+<p>La commande a été mise en attente.</p>
+{% endif %}
+<a href="{% url 'commandes:home' %}">Page commandes</a>
+<a href="{% url 'commandes:createCommandeIndividu' %}">Nouvelle Commande</a>
+{%endblock content %}

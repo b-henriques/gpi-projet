@@ -27,7 +27,6 @@ def creationReferentiel(request):
             # affiche la val d'un champ form.cleaned_data['nom-champ']
 
     if form2.is_valid():
-        print(True)
         # affiche les donnees du formulaire
         # print(form2.cleaned_data)
 

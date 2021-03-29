@@ -2,11 +2,30 @@
 
 {%block content %}
 
+{{message}}
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
     <input type="submit" value="Valider" name="valider">
+    {% if article %}
+    <input type="submit" value="Valider et ajouter un nouveau article" name="ajoutNouveauArticle">
+    {% endif %}
 </form>
+
+{% if article %}
+<table>
+    <th>Id</th>
+    <th>Prix</th>
+    <th>Quantite</th>
+    {% for a in articles %}
+    <tr>
+        <td>{{a.article.id}}</td>
+        <td>{{a.article.prix}}</td>
+        <td>{{a.quantite}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
 
 {%endblock content %}
