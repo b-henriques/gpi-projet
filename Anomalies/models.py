@@ -16,4 +16,4 @@ class Anomalie(models.Model):
         max_length=45, choices=type_choix, default=type_erreur_montant)
     
     date_generation = models.DateField()
-    
+    courrier = models.BooleanField(default=False)

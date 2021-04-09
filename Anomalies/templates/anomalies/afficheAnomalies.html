@@ -1,0 +1,41 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% load static %}
+
+<div class="filtres">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit">
+    </form>
+</div>
+
+<div class="contenu">
+    <table class="tableAnomalies">
+        <th id=gauche>Id_Anomalie</th>
+        <th class=milieu>Id_Commande</th>
+        <th class=milieu>Individu</th>
+        <th class=milieu>Type</th>
+        <th id=droite>Date_génération</th>
+        <th id=droite>Courrier</th>
+
+        {% for a in anomalies %}
+
+        <tr class="corps">
+            <td>{{a.id}}</td>
+            <td>{{a.commande.id}}</td>
+            <td>{{a.commande.client.nom}},{{a.commande.client.prenom}} </td>
+            <td>{{a.type}}</td>
+            <td>{{a.date_generation}}</td>
+            <td>{{a.courrier}}</td>
+            <td><a href="{% url 'anomalies:autresAnomalies' pk=a.pk %}">Envoi de Courrier</a></td>
+            <td><a href="#">Marquer comme resolue</a></td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+{%endblock content %}

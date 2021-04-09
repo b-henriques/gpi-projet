@@ -1,0 +1,44 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% load static %}
+
+<div>
+    <label>Commande n°: {{commande.id}}</label>
+</div>
+<div>
+    <p>
+        <label>Individu n°: {{commande.client.id}}</label>
+    </p>
+    <p>
+        <label>Nom: {{commande.client.nom}}</label>
+    </p>
+    <p>
+        <label>Prenom: {{commande.client.prenom}}</label>
+    </p>
+    <p>
+        <label>Adresse:</label>
+        <ul>
+            <li>{{commande.client.adresse.numero}} {{commande.client.adresse.rue}}</li>
+            <li>{{commande.client.adresse.codepostal}} {{commande.client.adresse.ville}}</li>
+        </ul>
+        
+    </p>
+</div>
+<div>
+    <label>Anomalies:</label>
+    <ul>
+    {% for a in anomalies %}
+    <li>{{a.type}}</li>
+    {% endfor %}
+    </ul>
+</div>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit">
+    </form>
+</div>
+{%endblock content %}

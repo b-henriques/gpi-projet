@@ -1,0 +1,11 @@
+{% extends 'referentiel/referentiel_view.html' %}
+
+{%block content %}
+
+{% load static %}
+
+<div>
+    <p>La commande associée à cette anomalie possède d'autres anomalies non résolues et qui ne font l'object d'aucun courrier.</p>
+    <a href="{% url 'anomalies:envoiCourrier' pk=commande %}">Éditer un courrier concernant toutes les anomalies.</a>
+</div>
+{%endblock content %}

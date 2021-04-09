@@ -1,0 +1,21 @@
+.im1 {
+    margin: auto;
+    background-image: url('pexels-ivan-samkov-4491874.jpg');
+    background-size: 100%;
+    width: 95%;
+    height: 700px;
+}
+.titre {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 100px;
+    color: aliceblue;
+}
+
+.titre a {
+    color: aliceblue;
+}
+
+a:hover {
+    color: gold;
+}

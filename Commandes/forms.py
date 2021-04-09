@@ -42,7 +42,8 @@ class CommandeArticleForm(forms.ModelForm):
 
 
 class CommandeChequeForm(forms.ModelForm):
-    
+    montant = forms.DecimalField(decimal_places=3, min_value=0)
+
     class Meta:
         model = Reglement
         fields = ['numero', 'montant', 'banque']
@@ -51,6 +52,7 @@ class CommandeChequeForm(forms.ModelForm):
 class CommandeCarteForm(forms.ModelForm):
     date_expiration = forms.DateField(
         label="Date du reglement :", widget=DateNaissance())
+    montant = forms.DecimalField(decimal_places=2, min_value=0)
 
     class Meta:
         model = Reglement

@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'referentiel/navigationbar.css' %}">
 <nav>
   <ul>
-    <li class="deroulant"><a href="#">Prospection </a>
+    <li class="deroulant"><a href="{% url 'publicite:home'%}">Prospection </a>
       <ul class="sous">
         <li><a href="{% url 'publicite:creationCible'%}"> Creation Cibles de routage</a></li>
         <li><a href="{% url 'publicite:validateCible'%}">Validation Cibles de routage</a></li>
@@ -10,26 +10,24 @@
         <li><a href="{% url 'publicite:envoiPublicite'%}">Envoi des Publicités</a></li>
       </ul>
     </li>
-    <li class="deroulant"><a href="#">Commandes</a>
+    <li class="deroulant"><a href="{% url 'commandes:home'%}">Commandes</a>
       <ul class="sous">
-        <li><a href="{% url 'commandes:createCommandeIndividu'%}">Enregistrement de Commandes</a></li>
-        <li><a href="#">Suivi des Commandes en ligne</a></li>
+        <li><a href="{% url 'commandes:createCommandeIndividu'%}">Enregistrer une nouvelle Commande</a></li>
       </ul>
     </li>
-    <li class="deroulant"><a href="#">Anomalies</a>
+    <li class="deroulant"><a href="{% url 'anomalies:home'%}">Anomalies</a>
       <ul class="sous">
-        <li><a href="#">Traitement des Anomalies</a></li>
-        <li><a href="#">Courriers des Anomalies</a></li>
+        <li><a href="{% url 'anomalies:afficheAnomalies'%}">Affichage Anomalies</a></li>
       </ul>
     </li>
-    <li class="deroulant"><a href="#">Administration du Référentiel</a>
+    <li class="deroulant"><a href="{% url 'referentiel:home'%}">Administration du Référentiel</a>
       <ul class="sous">
         <li><a href="{% url 'referentiel:creationReferentiel'%}">Creation Referentiel</a></li>
         <li><a href="{% url 'referentiel:affichageReferentielArticles'%}">Vue ensemble Referentiel_Articles</a></li>
         <li><a href="{% url 'referentiel:affichageReferentielIndividus'%}">Vue ensemble Referentiel_Individus</a></li>
       </ul>
     </li>
-    <li class="deroulant"><a href="{% url 'utilisateurs:logOut'%}">LogOut</a>
+    <li class="deconnecter"><a href="{% url 'utilisateurs:logOut'%}">Se déconnecter</a>
     </li>
   </ul>
 </nav>

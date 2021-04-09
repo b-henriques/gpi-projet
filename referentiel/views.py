@@ -8,7 +8,7 @@ from django.urls import reverse
 
 @permission_required("utilisateurs.perm_administrerRef")
 def index(request):
-    return render(request, 'referentiel/referentiel_view.html')
+    return render(request, 'referentiel/referentielHome.html')
 
 @permission_required("utilisateurs.perm_administrerRef")
 def creationReferentiel(request):

@@ -49,4 +49,4 @@ class Individu(models.Model):
         max_length=20, choices=cat_choix, default=prospect)
 
     def __str__(self) -> str:
-        return "(id = "+str(self.id)+", nom= "+self.nom+", prenom= "+self.prenom
+        return "(id = "+str(self.id)+", nom= "+self.nom+", prenom= "+self.prenom + ")"
