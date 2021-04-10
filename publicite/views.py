@@ -21,6 +21,7 @@ def createPublicite(request):
     form = PubliciteForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return redirect('publicite:home')
     contexte = {'form':PubliciteForm()}
     return render(request, 'publicite/editPublicite.html', contexte)
 
@@ -59,6 +60,7 @@ def validateCible(request):
         cible = Cible.objects.get(id=id)
         cible.valide = True
         cible.save()
+        return redirect(reverse('publicite:home'))
         
     cibles = Cible.objects.filter(valide=False)
     contexte = {'cibles': cibles}
@@ -78,5 +80,5 @@ def pubToXML(request, pk):
     XMLSerializer = serializers.get_serializer("xml")
     xml_serializer = XMLSerializer()
     with open("file.xml", "w") as out: xml_serializer.serialize(Publicite.objects.filter(pk=pk), stream=out)
-    return redirect(reverse("publicite:creationPublicite"))
+    return redirect(reverse("publicite:home"))
 

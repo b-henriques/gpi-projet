@@ -2,10 +2,12 @@
 
 {%block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'referentiel/createArticle.css' %}">
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <input type="submit" value="Créer Publicité">
-</form>
+<link rel="stylesheet" type="text/css" href="{% static 'publicite/pub.css' %}">
+<div class='pub'>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input class='btn' type="submit" value="Créer Publicité">
+    </form>
+</div>
 {%endblock content %}

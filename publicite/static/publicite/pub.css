@@ -1,0 +1,54 @@
+body {
+    background-image: url('earth-3866609_1920.jpg');
+    background-size: 100% 100%;
+    min-height: 700px;
+}
+
+
+.pub {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10%;
+    text-align: center;
+    background-color: rgba(255, 230, 0, 0.644);
+    border-radius: 40px;
+    padding: 20px;
+}
+
+
+.btn {
+    margin: 10px 10%;
+    height: 40px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.568);
+    color: aliceblue;
+    font-size: 20px;
+}
+
+label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+textarea {
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background-color: goldenrod;
+}
+
+input {
+    width: 300px;
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+select {
+    margin-top: 10px;
+    height: 50px;
+    width: 300px;
+}
