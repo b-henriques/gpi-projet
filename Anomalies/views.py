@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.urls.base import reverse
 from django.urls.resolvers import get_ns_resolver
 from Anomalies.forms import CourrierForm, FiltresForm
@@ -7,11 +8,11 @@ from .models import Anomalie
 from Commandes.models import Commande
 
 # Create your views here.
-
+@permission_required("utilisateurs.perm_anomalies")
 def index(request):
     return render(request, 'anomalies/anomaliesHome.html')
 
-
+@permission_required("utilisateurs.perm_anomalies")
 def afficheAnomalies(request):
     """affichage et filtrage d'anoamlies
     """
@@ -33,7 +34,7 @@ def afficheAnomalies(request):
     context = {'anomalies': anomalies, 'form': form}
     return render(request, 'anomalies/afficheAnomalies.html', context)
 
-
+@permission_required("utilisateurs.perm_anomalies")
 def autresAnomalies(request, pk):
     """teste s'il y a d'autres anomalies associes à la meme commande ce cette anomalie(dont id=pk)
     """
@@ -45,7 +46,7 @@ def autresAnomalies(request, pk):
     else:
         return redirect(reverse('anomalies:envoiCourrier', args=[anomalie.commande.pk]))
 
-
+@permission_required("utilisateurs.perm_anomalies")
 def envoiCourrier(request, pk):
     """permet d'editer un message et transferrer un fichier xml au systeme d'edition
     """

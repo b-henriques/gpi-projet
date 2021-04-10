@@ -10,4 +10,5 @@ class Utilisateur(AbstractUser):
               ("perm_administrerRef", "peut acceder a la vue administration referentiel"),
               ("perm_publicite", "peut acceder a la vue publicite"),
               ("perm_commandes", "peut acceder a la vue commandes"),
+              ("perm_anomalies", "peut acceder a la vue anomalies")
           ]
