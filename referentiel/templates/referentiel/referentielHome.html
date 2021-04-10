@@ -6,8 +6,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'referentiel/home.css' %}">
 
 <div class="im1">
-    <h1 class='titre'><a href="">Articles</a></h1>
-    <h1 class='titre'><a href="">Individus</a></h1>
-    <h1 class="titre"><a href="">Creation referentiel</a></h1>
+    <h1 class='titre'><a href="{% url 'referentiel:affichageReferentielArticles'%}">Articles</a></h1>
+    <h1 class='titre'><a href="{% url 'referentiel:affichageReferentielIndividus'%}">Individus</a></h1>
+    <h1 class="titre"><a href="{% url 'referentiel:creationReferentiel'%}">Creation referentiel</a></h1>
 </div>
 {%endblock content %}
