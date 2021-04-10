@@ -25,7 +25,7 @@ class Adresse(models.Model):
     ville = models.CharField(max_length=50)
 
     def __str__(self) -> str:
-        return str(self.numero)+self.rue+"\n"+str(self.codepostal)+self.ville
+        return str(self.numero)+" "+self.rue+"\n "+str(self.codepostal)+" "+self.ville
 
 
 class Individu(models.Model):

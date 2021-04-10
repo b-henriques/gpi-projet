@@ -8,7 +8,7 @@
 <div class="contenu">
     <table class="tableReferentiel">
         <th width="10%" id=gauche>Id de l'article</th>
-        <th width="60%" class=milieu>Désignation</th>
+        <th width="50%" class=milieu>Désignation</th>
         <th width="20%" id=droite>Prix</th>
 
         {% for i in articles %}
@@ -17,8 +17,8 @@
             <td>{{i.id}}</td>
             <td>{{i.designation}}</td>
             <td>{{i.prix}}</td>
-            <td width="10%"><a href="{% url 'referentiel:modifArticle' pk=i.id%}">Modifier</a></td>
-            <td width="10%"><a href="{% url 'referentiel:supressionArticle' pk=i.id%}">Supprimer</a></td>
+            <td width=100px><a href="{% url 'referentiel:modifArticle' pk=i.id%}">Modifier</a></td>
+            <td width=100px><a href="{% url 'referentiel:supressionArticle' pk=i.id%}">Supprimer</a></td>
         </tr>
 
         {% endfor %}

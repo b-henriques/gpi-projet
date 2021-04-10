@@ -3,12 +3,14 @@
 
 {%block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'referentiel/createArticle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/modifier.css' %}">
+<div class='contenu'>
 <form  method="post">
     {% csrf_token %}
     <h1>Modification Individu</h1>
     {{ form.as_p}}
-    <input type="submit" value="Modifier Individu">
-    <a href="{% url 'referentiel:supressionIndividu' pk=id%}">Supprimer</a>
+    <input class='btn' type="submit" value="Modifier Individu" name='modifier'>
+    <input class='btn' type="submit" value="Supprimer Individu" name='supprimer'>
 </form>
+</div>
 {%endblock content %}

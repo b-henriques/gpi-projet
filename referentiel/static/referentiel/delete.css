@@ -1,19 +1,23 @@
 body {
     background-image: url('pexels-ivan-samkov-4491874.jpg');
     background-size: 100% 100%;
+    min-height: 900px;
+    
 }
-div {
+.contenu {
     margin: 50px 150px;
     border-radius: 20px;
     background-color: rgba(172, 132, 33, 0.603);
     padding: 20px;
 }
-input {
-    width: 300px;
-    height: 20px;
-    margin-top: 10px;
-    border-radius: 6px;
+
+p {
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
 }
+
 .btn {
     margin: 10px 10%;
     height: 40px;
@@ -27,16 +31,4 @@ input {
 .btn:hover {
     transform: scale(1.1);
     background-color: goldenrod;
-    
-}
-
-h1 {
-    color: aliceblue;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 90px;
-}
-
-label {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
 }

@@ -1,20 +1,43 @@
 {% extends 'referentiel/referentiel_view.html' %}
 
 {%block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/delete.css' %}">
+
+<div class='contenu'>
 <p>
-    Id:{{individu.id}};
-    Nom: {{individu.nom}};
-    Prenom: {{individu.prenom}} ;
-    Date de naissance: {{individu.datenaissance}} ;
-    Numero de telephone: {{individu.ntel}} ;
-    Adresse Mail: {{individu.mail}} ;
-    Adresse: {{individu.adresse}} ;
-    Catégorie Professionnelle: {{individu.catprofessionnelle}} ;
-    Catégorie Commercial: {{individu.catcommerciale}} ;
+    Id: {{individu.id}}
+</p>
+<p>
+    Nom: {{individu.nom}}
+</p>
+<p>
+    Prenom: {{individu.prenom}} 
+</p>
+<p>
+    Date de naissance: {{individu.datenaissance}} 
+</p>
+<p>
+    Numero de telephone: {{individu.ntel}} 
+</p>
+<p>
+    Adresse Mail: {{individu.mail}} 
+</p>
+<p>
+    Adresse: {{individu.adresse}} 
+</p>
+<p>
+    Catégorie Professionnelle: {{individu.catprofessionnelle}} 
+</p>
+<p>
+    Catégorie Commercial: {{individu.catcommerciale}} 
 </p>
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Suprimmer Individu</button>
-    <button type="submit" name='annuler'>Annuler</button>
+    <button class='btn' type="submit">Suprimmer Individu</button>
+    <button class='btn' type="submit" name='annuler'>Annuler</button>
 </form>
+
+</div>
 {%endblock content %}

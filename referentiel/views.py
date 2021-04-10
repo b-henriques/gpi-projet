@@ -109,7 +109,7 @@ def modifierIndividu(request, pk):
         'codepostal' : individu.adresse.codepostal,
         'ville' : individu.adresse.ville 
     })
-    if form.is_valid():
+    if form.is_valid() and 'modifier' in request.POST:
         adresse = individu.adresse
         adresse.numero=form.cleaned_data['numero']
         adresse.rue=form.cleaned_data['rue']
@@ -126,5 +126,7 @@ def modifierIndividu(request, pk):
         individu.catprofessionnelle=form.cleaned_data['catprofessionnelle']
         individu.save()
         return redirect(reverse("referentiel:affichageReferentielIndividus"))
+    if 'supprimer' in request.POST:
+        return redirect(reverse('referentiel:supressionIndividu', args=[pk]))
     contexte = {'form': form, 'id':pk}
     return render(request, 'referentiel/modifIndividu.html', contexte)

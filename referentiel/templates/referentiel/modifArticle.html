@@ -3,12 +3,14 @@
 
 {%block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'referentiel/createArticle.css' %}">
-<form method="post">
-    {% csrf_token %}
-    <h1>Modification Article</h1>
-    {{ form.as_p}}
-    <input type="submit" value="ModifierArticle">
-</form>
+<link rel="stylesheet" type="text/css" href="{% static 'referentiel/modifier.css' %}">
+<div class='contenu'>
+    <form method="post">
+        {% csrf_token %}
+        <h1>Modification Article</h1>
+        {{ form.as_p}}
+        <input class='btn' type="submit" value="ModifierArticle">
+    </form>
+</div>
 
 {%endblock content %}
