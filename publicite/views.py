@@ -14,7 +14,7 @@ from django.urls import reverse
 
 @permission_required("utilisateurs.perm_publicite")
 def index(request):
-    return render(request, 'referentiel/referentiel_view.html')
+    return render(request, 'publicite/publiciteHome.html')
 
 @permission_required("utilisateurs.perm_publicite")
 def createPublicite(request):

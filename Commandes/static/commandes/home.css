@@ -1,0 +1,21 @@
+.im1 {
+    margin: auto;
+    background-image: url('pexels-karolina-grabowska-5650037.jpg');
+    background-size: 100% 100%;
+    width: 95%;
+    height: 700px;
+}
+.titre {
+    padding-top: 60px;
+    text-align: center;
+    font-size: 100px;
+    color: aliceblue;
+}
+
+.titre a {
+    color: aliceblue;
+}
+
+a:hover {
+    color: gold;
+}

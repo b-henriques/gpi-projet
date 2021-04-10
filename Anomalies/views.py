@@ -9,7 +9,7 @@ from Commandes.models import Commande
 # Create your views here.
 
 def index(request):
-    return render(request, 'referentiel/referentiel_view.html')
+    return render(request, 'anomalies/anomaliesHome.html')
 
 
 def afficheAnomalies(request):

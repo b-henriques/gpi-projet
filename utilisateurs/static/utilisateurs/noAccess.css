@@ -1,0 +1,28 @@
+.contenu {
+    margin: auto;
+    background-image: url('pexels-tim-mossholder-1171386.jpg');
+    background-size: 100% 100%;
+    width: 95%;
+    height: 700px;
+}
+
+#groupes {
+    padding-top: 80px;
+}
+
+.contenu p {
+    text-align: center;
+    font-size: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orange;
+}
+
+.contenu a {
+    text-align: center;
+    font-weight: 800;
+    color: aliceblue;
+}
+
+a:hover {
+    color: gold;
+}

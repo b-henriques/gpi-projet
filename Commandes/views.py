@@ -13,7 +13,7 @@ from django.urls import reverse
 
 @permission_required("utilisateurs.perm_commandes")
 def index(request):
-    return render(request, 'referentiel/referentiel_view.html')
+    return render(request, 'commandes/commandesHome.html')
 
 
 # TODO: verification carte
